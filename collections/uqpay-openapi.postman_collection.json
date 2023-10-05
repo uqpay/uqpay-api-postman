@@ -1,0 +1,938 @@
+{
+	"info": {
+		"_postman_id": "11773187-8198-407d-a573-dd63ddfa7194",
+		"name": "uqpay-openapi",
+		"description": "UQPAY Openapi official supported Postman collections.\n\nAPI documents: https://docs.uqpay.org/introduction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "339425"
+	},
+	"item": [
+		{
+			"name": "Balances",
+			"item": [
+				{
+					"name": "List all balances",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/balances?page_num=1&page_size=10&currency=&status&name",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"balances"
+							],
+							"query": [
+								{
+									"key": "page_num",
+									"value": "1",
+									"description": "Page number, starts from 1."
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"description": "Number of results per page.Maximum 50"
+								},
+								{
+									"key": "currency",
+									"value": "",
+									"description": "Filter on currency of the balance.\nThree-letter ISO 4217 currency code."
+								},
+								{
+									"key": "status",
+									"value": null,
+									"description": "Filter on status of the balance.\nOne of all, active, closed"
+								},
+								{
+									"key": "name",
+									"value": null,
+									"description": "Fuzzy search by name of the balance."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a balance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currency\": \"HKD\",\n    \"name\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/balances/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"balances",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/balances/retrieve/:currency",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"balances",
+								"retrieve",
+								":currency"
+							],
+							"variable": [
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a bank details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/balances/:currency/bank_details",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"balances",
+								":currency",
+								"bank_details"
+							],
+							"variable": [
+								{
+									"key": "currency",
+									"value": "HKD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "{{x-client-id}}",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/transactions?page_num=1&page_size=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page_num",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Issuing",
+			"item": [
+				{
+					"name": "Cards",
+					"item": [
+						{
+							"name": "List all cards",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cards?page_num=1&page_size=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards"
+									],
+									"query": [
+										{
+											"key": "page_num",
+											"value": "1",
+											"description": "Page number, starts from 1."
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "Number of results per page.\nMaximum 50"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"card_holder_id\": \"65dd6638-5c23-4d9c-9672-1e7fd0fb0c14\",\n    \"product_code\": \"IC_VISA_491724\",\n    \"balance_id\": \"deaf719f-fc53-439e-bc39-dcc082c9ac28\",\n    \"open_number\": 1,\n    \"card_limit\": \"10\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cards/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve card details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cards/:card_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										":card_id"
+									],
+									"variable": [
+										{
+											"key": "card_id",
+											"value": "570f6e4b-8ec6-41ce-9481-915c03cffdc9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve sensitive card details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cards/:card_id/secure",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										":card_id",
+										"secure"
+									],
+									"variable": [
+										{
+											"key": "card_id",
+											"value": "570f6e4b-8ec6-41ce-9481-915c03cffdc9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Recharge a card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"card_number\": \"9333019900054387\",\n    \"card_id\": \"570f6e4b-8ec6-41ce-9481-915c03cffdc9\",\n    \"balance_id\": \"deaf719f-fc53-439e-bc39-dcc082c9ac28\",\n    \"recharge_amount\": \"10\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cards/recharge",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"recharge"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Freeze a card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"card_id\": \"c65e2e98-fd49-4f43-adc1-f0d1081df4bc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cards/freeze",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"freeze"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Unfreeze a card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"card_id\": \"c65e2e98-fd49-4f43-adc1-f0d1081df4bc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cards/unfreeze",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"unfreeze"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"card_id\": \"c65e2e98-fd49-4f43-adc1-f0d1081df4bc\",\n    \"card_name\": \"test123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cards/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel a card",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"card_id\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cards/cancel",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"cancel"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Card Holders",
+					"item": [
+						{
+							"name": "List all cardholders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cardholders?page_num=1&page_size=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cardholders"
+									],
+									"query": [
+										{
+											"key": "page_num",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "card_holder_status",
+											"value": "",
+											"description": "Filter on status of cardholder.\nOne of -1=FAILED, 0-PENDING, 1-SUCCESS, 2-INCOMPLETE",
+											"disabled": true
+										},
+										{
+											"key": "holder_name",
+											"value": "",
+											"description": "Fuzzy search by name of the cardholder.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a card holder",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"testw@gmail.com\",\n    \"first_name\":\"test\",\n    \"last_name\":\"f\",\n    \"date_birth\":\"1990-02-16\",\n    \"phone_number\":\"13088888888\",\n    \"residential_address\":\"\",\n    \"delivery_address\":\"\",\n    \"card_holder_status\":0\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cardholders/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cardholders",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve cardholder details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"\",\n    \"first_name\":\"\",\n    \"last_name\":\"\",\n    \"date_birth\":\"\",\n    \"phone_number\":\"\",\n    \"residential_address\":\"\",\n    \"delivery_address\":\"\",\n    \"card_holder_status\":0\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/cardholders/:card_holder_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cardholders",
+										":card_holder_id"
+									],
+									"variable": [
+										{
+											"key": "card_holder_id",
+											"value": "023a8f6d-7c98-4c2a-bcac-2ddb081718b4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a cardholder",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cardholders/:card_holder_id/remove",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cardholders",
+										":card_holder_id",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "card_holder_id",
+											"value": "023a8f6d-7c98-4c2a-bcac-2ddb081718b4",
+											"description": "ID of the cardholder."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transactions",
+					"item": [
+						{
+							"name": "List all card transactions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cards/transactions?page_num=1&page_size=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "page_num",
+											"value": "1",
+											"description": "Page number, starts from 1."
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "Number of results per page."
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "List Card Products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-client-id",
+										"value": "{{x-client-id}}",
+										"type": "text"
+									},
+									{
+										"key": "x-auth-token",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/cards/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cards",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth/signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "x-client-id",
+						"value": "{{x-client-id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/auth/signin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"signin"
+					]
+				},
+				"description": "Authenticates and authorizes a user to the UQPAY API. The authentication token is required to make requests to all other endpoints in the UQPAY API. Tokens expire after 10 minutes of inactivity."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const xClientId = pm.environment.get(\"x-client-id\");",
+					"const xApiKey = pm.environment.get(\"x-api-key\");",
+					"const url = pm.environment.get(\"url\");",
+					"const authSigninPath = \"/api/v1/auth/signin\";",
+					"const authLoginReq = {",
+					"    url: url + authSigninPath,",
+					"    method: \"POST\",",
+					"    header: {",
+					"        'Content-type':'application/json',",
+					"        'x-api-key': xApiKey,",
+					"        'x-client-id': xClientId,",
+					"    },",
+					"};",
+					"",
+					"const reqUrl = pm.request.url.getPath()",
+					"if (reqUrl != authSigninPath) {",
+					"    pm.sendRequest(authLoginReq, function(err, response){",
+					"        // response.json()",
+					"        pm.globals.set(\"auth_token\", \"Bearer \"+response.json()[\"data\"][\"auth_token\"]);",
+					"    })",
+					"}",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
