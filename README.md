@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # UQPAY API Postman
-[Postman](https://getpostman.com) 是一个API合作平台。
+[Postman](https://www.postman.com) 是一个API合作平台。
 
 为了便于用户快速方便的使用 RESTful APIs，Uqpay 提供几个 Postman Collections 和 Environments 文件(JSON文件)。<br/>
 只需要导入并设置自己的 API 密钥就能即可开始。
