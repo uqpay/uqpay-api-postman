@@ -1,51 +1,58 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # UQPAY API Postman
-[Postman](https://www.postman.com) 是一个API合作平台。
 
-为了便于用户快速方便的使用 RESTful APIs，Uqpay 提供几个 Postman Collections 和 Environments 文件(JSON文件)。<br/>
-只需要导入并设置自己的 API 密钥就能即可开始。
+[English](README.md) | [简体中文](README_Zh.md)
 
+[Postman](https://www.postman.com) is an API collaboration platform.
 
-## 如何导入和配置
-- 下载 `uqpay-api-postman` 存储库到本地。
+To allow users to quickly and conveniently use RESTful APIs, Uqpay offers several Postman Collections and Environments files (JSON files). You just need to import and set up your own API key to get started.
 
-- 单击 `Import` 按钮。 例如，在 Windows 版 Postman 上，按钮位于左上角。
-  <img src="assets/1.png" alt="Windows 版 Postman 的屏幕截图，左上角指出了 'Import' 按钮。"/>
+You only need to import and set up your own API key to get started.
 
-- 在 `Import` 弹出页面上，单击 `folders` 按钮，然后选择下载存储库的根文件夹。
-  <img src="assets/2.png" alt="Windows 版 Postman 的屏幕截图，显示了导入屏幕。"/>
+## How to import and configure?
+- Download `uqpay-api-postman` save to local.
 
-- 选择要导入的 collections 和 environments，然后单击 `Import` 按钮。
-  <img src="assets/3.png" alt="Windows 版 Postman 的屏幕截图，显示选择文件夹后的导入屏幕。"/>
+- Click the `Import` button. For example, on the Windows version of Postman, the button is located in the top left corner.
 
-- 选择左侧的 `Environments` 选项卡，选择一个 environment，在 `Current value` 的列上设置您的 Client ID 和 X Api Key(参见截图)。
-  设置完值后，一定要记得单击右上角的 `Save` 按钮保存。
-  <img src="assets/4.png" alt="Windows 版 Postman 的屏幕截图，显示用户在哪里填写API密钥。"/>
+  <img src="assets/1.png" alt="A screenshot of the Windows version of Postman, pointing out the `Import` button in the top left corner."/>
 
-- 从环境下拉列表中选择新添加的 environment。在 Windows 上，它位于右上角。
-  <img src="assets/5.png" alt="Windows 版 Postman 的屏幕截图，显示如何在下拉列表中选择导入的 environment。"/>
+- On the Import pop-up page, click the `folders` button and then select the root folder of the downloaded repository. 
 
+  <img src="assets/2.png" alt="A screenshot of the Windows version of Postman showing the import screen."/>
 
-## Postman 安全实践
-为了确保账户安全，建议采取以下最佳安全实践：
+- Choose the collections and environments you want to import, and then click the `Import` button.
 
-- 不要使用从未知来源获得的 Postman Collections。
-- 在使用前要检查好 Environment JSON 文件。
-- 不要使用任何你不理解的代码。
-- 使用完 API 端点后，删除所有的 API 密钥。
+  <img src="assets/3.png" alt="A screenshot of the Windows version of Postman, showing the import screen after selecting the folder."/>
+
+- Select the `Environments` tab on the left, select an environment, and set your `x-client-id` and `x-api-key` in the `Current value` column (see screenshot). After setting the values, remember to click the `Save` button in the top right corner.
+
+  <img src="assets/4.png" alt="A screenshot of the Windows version of Postman, showing where users fill in the API key."/>
+
+- From the environment dropdown, select the newly added environment. On Windows, it's located in the top right corner. 
+
+  <img src="assets/5.png" alt="A screenshot of the Windows version of Postman, showing how to select the imported environment from the dropdown."/>
 
 
-## 常见问题
-**Q:** 为什么我得不到任何回应？
+## Postman Security Practices
 
-检查是否已导入 environment 设置并从列表中选择对应的 environment。请按照上面的步骤设置好你的 environment。
+To ensure account security, it's recommended to follow these best security practices
 
-**Q:** 如何 debug 或者怎么查看请求的 URL ？
+- Do not use Postman Collections obtained from unknown sources.
+- Check the Environment JSON file before using.
+- Do not use any code you do not understand.
+- After using the API endpoint, delete all API keys.
 
-- 在 Postman 的控制台内能看到每一个请求打印出的参数和 URL 。
-- 可以通过编辑 `Pre-request Script` 选项卡做调试。
+## Frequently Asked Questions
+**Q:** Why am I not getting any response?
+
+Check if you have imported the environment settings and selected the corresponding environment from the list. Please set up your environment according to the steps above.
+
+**Q:** How to debug or how to view the request URL?
+
+- Within Postman's console, you can see the parameters and URL printed for each request.
+- You can debug by editing the `Pre-request Script` tab.
 
 
-## 有疑问
-可以在此存储库提供 [`issue`](https://github.com/uqpay/uqpay-api-postman/issues).
+## If you have questions
+You can post an issue in this repository [`issue`](https://github.com/uqpay/uqpay-api-postman/issues).
